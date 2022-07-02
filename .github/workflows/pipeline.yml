@@ -19,10 +19,9 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
- DeployProd:
+  DeployProd:
     needs: Build
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -57,4 +56,4 @@ jobs:
           image_url: ${{ secrets.ARTIFACT_REGISTRY }}/myapp:latest
 
       - name: Prod Test
-        run: 'curl "${{ steps.appengine.outputs.url }}"' 
+        run: 'curl "${{ steps.appengine.outputs.url }}"'
